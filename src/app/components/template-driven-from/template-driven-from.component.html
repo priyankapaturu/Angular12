@@ -1,0 +1,33 @@
+<div class="container shadow p-3 bg-body rounded">
+    <div class="row">
+        <div class="col-md-12">
+            <form name='form' #userData="ngForm" (ngSubmit)="userData.form.valid && getUserData(userData)" novalidate >
+            <div class="form-group">
+                <label for="Name" >Name : </label>
+                <input type="text" name="name" class="form-control col-md-6"  ngModel #name='ngModel'  required /> 
+            </div> {{name.valid}}
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="invalid-feedback" > Please provide Name *</div>
+            <div class="form-group">
+                <label for="Email" >Email : </label>
+                <input type="text" name="email" class="form-control col-md-6" ngModel >
+            </div>
+            <div ngModelGroup='address' >
+            <div class="form-group">
+                <label for="City" >City : </label>
+                <input type="text" name="city" class="form-control col-md-6" ngModel >
+            </div>
+            <div class="form-group">
+                <label for="State" >State : </label>
+                <input type="text" name="state" class="form-control col-md-6" ngModel >
+            </div>
+            <div class="form-group">
+                <label for="Country" >Country : </label>
+                <input type="text" name="country" class="form-control col-md-6" ngModel >
+            </div></div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" >Submit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

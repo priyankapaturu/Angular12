@@ -1,0 +1,20 @@
+<div class="container bg-light ">
+    <div class="row">
+        <div class="col-md-7 p-3">
+            <button class="btn btn-primary" (click)="onAddUser()">Add User</button>
+        </div>
+        <div class="col-md-5 p-3 right">
+            <input type="text" class="form-control" [(ngModel)]="filteredString"/>
+        </div>
+    </div>
+    <div class="row"> 
+         <div class="col-md-12" >
+              <div *ngFor="let user of userData | filter:filteredString" class="my-3 shadow p-3 bg-body rounded">
+                  <div><span class="primary">Name </span>: {{user.name | uppercase}}</div>
+                  <div><span class="primary">Course </span>:{{user.course}}</div>
+                  <div><span class="primary">Date Of Birth</span> :{{user.Dob | date:'fullDate'}} </div>
+                  <div><span class="primary">Subject </span>:{{user.subject | pipes:75}}</div>
+              </div>
+        </div>
+    </div>
+</div>
